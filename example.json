@@ -1,0 +1,44 @@
+{
+  "inventory": {
+    "location": "Warehouse A",
+    "items": [
+      {
+        "id": "1",
+        "name": "Laptop",
+        "brand": "Dell",
+        "price": 899.99,
+        "quantity": 50,
+        "specs": {
+          "processor": "Intel Core i7",
+          "memory": "16GB RAM",
+          "storage": "512GB SSD"
+        }
+      },
+      {
+        "id": "2",
+        "name": "Smartphone",
+        "brand": "Apple",
+        "price": 999.99,
+        "quantity": 100,
+        "specs": {
+          "screen_size": 6.1,
+          "camera": "12MP",
+          "storage": "128GB"
+        }
+      }
+    ]
+  },
+  "employees": [
+    {
+      "id": "E001",
+      "name": "John Doe",
+      "position": "Warehouse Manager"
+    },
+    {
+      "id": "E002",
+      "name": "Jane Smith",
+      "position": "Sales Representative"
+    }
+  ],
+  "last_updated": "2023-09-03T10:30:00Z"
+}
