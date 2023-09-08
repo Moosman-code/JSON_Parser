@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\DataTypes">
+      <UniqueIdentifier>{06f42ef7-5e9a-4e4f-95c2-65b0296a87c5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -20,7 +23,27 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="DataTypes.h">
+    <None Include="example.json">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Data.h">
+      <Filter>Header Files\DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="JSON.h">
+      <Filter>Header Files\DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="Primitives.h">
+      <Filter>Header Files\DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector.h">
+      <Filter>Header Files\DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Utilities.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

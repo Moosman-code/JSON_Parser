@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>D:\JSONParser\x64\Debug\JSONParser.exe</FullPath>
+      <FullPath>D:\University\C++\JSON_Parser\x64\Debug\JSONParser.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

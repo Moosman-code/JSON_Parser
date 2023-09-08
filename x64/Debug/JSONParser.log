@@ -1,5 +1,5 @@
 ﻿  main.cpp
-D:\JSONParser\DataTypes.h(52,7): error C2143: syntax error: missing ';' before '<class-head>'
-D:\JSONParser\DataTypes.h(52,11): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-D:\JSONParser\DataTypes.h(97,25): warning C4244: 'argument': conversion from 'double' to 'const float', possible loss of data
-D:\JSONParser\DataTypes.h(100,14): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+D:\University\C++\JSON_Parser\Primitives.h(88,25): warning C4244: 'argument': conversion from 'double' to 'const float', possible loss of data
+D:\University\C++\JSON_Parser\Primitives.h(91,14): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+D:\University\C++\JSON_Parser\Utilities.h(12,29): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  JSONParser.vcxproj -> D:\University\C++\JSON_Parser\x64\Debug\JSONParser.exe

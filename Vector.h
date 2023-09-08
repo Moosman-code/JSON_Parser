@@ -1,5 +1,6 @@
 #pragma once
 
+#include <vector>
 #include "Data.h"
 
 class Vector : public Data {
