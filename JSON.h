@@ -15,6 +15,9 @@ public:
 			std::cout << std::endl;
 		}
 	}
+	void Add(std::string key, Data* value) {
+		this->dictionary.insert(std::pair<std::string, Data*>(key, value->Clone()));
+	}
 
 	// HELPERS OF BIG 4
 	std::unordered_map<std::string, Data*>& Get() {

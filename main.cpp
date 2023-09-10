@@ -6,9 +6,6 @@
 
 int main()
 {
-	std::string line =  "  \"randomKey\": value,    ";
-	Trim(line);
-	std::cout << line;
-
-	return 0;
+	std::string str = "123.123";
+	std::cout << CheckIfDouble(str);
 }
