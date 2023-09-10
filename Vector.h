@@ -13,8 +13,8 @@ public:
 			value->Print();
 		}
 	}
-	void Add(Data& value) {
-		this->vector.push_back(value.Clone());
+	void Add(Data* value) {
+		this->vector.push_back(value->Clone());
 	}
 
 	// HELPERS OF BIG 4

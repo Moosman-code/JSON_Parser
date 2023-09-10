@@ -45,7 +45,7 @@ bool CheckIfDouble(std::string& value) {
 	size_t position = 0;
 	double number = stod(value, &position);
 
-	// Doesnt account for values like 123.123f, 123.123ULL
+	// Doesnt account for values like 123.123f, 123.123ULL...
 	if (position < value.size()) {
 		return false;
 	}

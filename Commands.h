@@ -55,7 +55,7 @@ JSON* CreateJSON(std::ifstream& file, std::string& line) {
 		else {
 			value = CreateValue(pair[1]);
 		}
-
+	
 		json->Add(key, value);
 		file >> line;
 	}
@@ -65,7 +65,32 @@ JSON* CreateJSON(std::ifstream& file, std::string& line) {
 
 
 Vector* CreateVector(std::ifstream& file, std::string& line) {
-	return nullptr;
+	file >> line;
+	Trim(line);
+	Vector* vector = new Vector();
+
+	while (line != "]") {
+		if (line == "") {
+			file >> line;
+			continue;
+		}
+
+		Data* value = nullptr;
+		if (line == "{") {
+			value = CreateJSON(file, line);
+		}
+		else if (line == "[") {
+			value = CreateVector(file, line);
+		}
+		else {
+			value = CreateValue(line);
+		}
+
+		vector->Add(value);
+		file >> line;
+	}
+
+	return vector;
 }
 
 Data* CreateValue(std::string& value) {
