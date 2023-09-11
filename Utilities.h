@@ -6,16 +6,19 @@ void Trim(std::string& line) {
 	std::string modifiedLine;
 
 	int left = 0;
-	while (line[left] == ' ') {
+	while (line[left] == ' ' || line[left] == '\t') {
 		left++;
 	}
 
 	int right = line.size() - 1;
-	while (line[right] == ' ') {
+	while (line[right] == ' ' || line[right] == '\t') {
 		right--;
 	}
 
 	line = line.substr(left, right - left + 1);
+	if (line[line.size() - 1] == ',') {
+		line = line.substr(0, line.size() - 1);	
+	}
 }
 
 std::vector<std::string> GetPair(std::string& line) {

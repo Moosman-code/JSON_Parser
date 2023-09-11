@@ -8,7 +8,7 @@ private:
 	std::unordered_map<std::string, Data*> dictionary;
 public:
 	// FUNCTIONS
-	void Print() {
+	void Print() { 
 		for (const auto& pair : this->dictionary) {
 			std::cout << pair.first << ":\n";
 			pair.second->Print();
@@ -29,12 +29,7 @@ public:
 		}
 	}
 	Data* Clone() {
-		std::unordered_map<std::string, Data*> newDictionary;
-		for (const auto& pair : this->dictionary) {
-			newDictionary.insert(std::pair<std::string, Data*>(pair.first, pair.second->Clone()));
-		}
-
-		return new JSON(newDictionary);
+		return new JSON(this->dictionary);
 	}
 	void Clear() {
 		for (const auto& pair : this->dictionary) {

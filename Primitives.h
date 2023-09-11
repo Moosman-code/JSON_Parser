@@ -87,16 +87,16 @@ public:
 	Data* Clone() override {
 		return new Double(this->value);
 	};
-	float Get() {
+	double Get() {
 		return this->value;
 	}
-	void Set(const float _value) {
+	void Set(const double _value) {
 		this->value = _value;
 	}
 
 	// BIG 3
 	Double() = default;
-	Double(const float _value) {
+	Double(const double _value) {
 		this->Set(_value);
 	}
 	Double& operator=(const Double& other) {

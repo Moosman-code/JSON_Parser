@@ -2,10 +2,12 @@
 //
 
 #include <iostream>
-#include "Commands.h"
+#include "Deserialize.h"
 
 int main()
 {
-	std::string str = "123.123";
-	std::cout << CheckIfDouble(str);
+	std::ifstream file;
+	file.open("example.json");
+	Data* result = Deserialize(file);
+	result->Print();
 }

@@ -146,7 +146,7 @@
     <None Include="example.json" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Commands.h" />
+    <ClInclude Include="Deserialize.h" />
     <ClInclude Include="Data.h" />
     <ClInclude Include="JSON.h" />
     <ClInclude Include="Primitives.h" />
