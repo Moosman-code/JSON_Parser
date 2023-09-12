@@ -3,7 +3,9 @@
 #include <regex>
 
 void Trim(std::string& line) {
-	std::string modifiedLine;
+	if (line == "") {
+		return;
+	}
 
 	int left = 0;
 	while (line[left] == ' ' || line[left] == '\t') {

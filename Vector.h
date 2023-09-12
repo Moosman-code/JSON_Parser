@@ -9,9 +9,17 @@ private:
 public:
 	// FUNCTIONS
 	void Print() override {
+		int localSpacing = globalSpacing;
+		globalSpacing += 2;
+
+		std::cout << "[" << std::endl;
 		for (Data* value : this->vector) {
+			std::cout << std::setw(localSpacing + 2);
 			value->Print();
 		}
+
+		std::cout<< std::setw(localSpacing) << "]" << std::endl;
+		globalSpacing -= 2;
 	}
 	void Add(Data* value) {
 		this->vector.push_back(value->Clone());

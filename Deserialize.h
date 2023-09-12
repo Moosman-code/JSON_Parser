@@ -10,13 +10,13 @@ Vector* CreateVector(std::ifstream& file, std::string& line);
 Data* CreateValue(std::string& value);
 
 Data* Deserialize(std::ifstream& file) {
+	globalSpacing = 0;
 	std::string line;
 	Data* returnValue = nullptr;
-
+	
 	while (getline(file, line)) {
 		Trim(line);
-
-		if (line.size() == 1) {
+		if (line.size() != 0) {
 			if (line == "{") {
 				returnValue = CreateJSON(file, line);
 			}
@@ -98,7 +98,13 @@ Vector* CreateVector(std::ifstream& file, std::string& line) {
 Data* CreateValue(std::string& value) {
 	Data* returnValue = nullptr;
 
-	if (value[0] == '\"' && value[value.size() - 1] == '\"') {
+	if (value == "[]") {
+		returnValue = new Vector();
+	}
+	else if (value == "{}") {
+		returnValue = new JSON();
+	}
+	else if (value[0] == '\"' && value[value.size() - 1] == '\"') {
 		returnValue = new String(value.substr(1, value.size() - 2));
 	}
 	else if (value == "true") {
@@ -115,4 +121,4 @@ Data* CreateValue(std::string& value) {
 	}
 
 	return returnValue;
-}
+};

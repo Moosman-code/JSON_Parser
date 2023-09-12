@@ -143,15 +143,15 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="example.json" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="Deserialize.h" />
     <ClInclude Include="Data.h" />
     <ClInclude Include="JSON.h" />
     <ClInclude Include="Primitives.h" />
     <ClInclude Include="Utilities.h" />
     <ClInclude Include="Vector.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="example.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

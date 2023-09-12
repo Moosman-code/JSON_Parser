@@ -9,7 +9,7 @@ private:
 public:
 	// FUNCTIONS
 	void Print() override {
-		std::cout << "String value: " << value << std::endl;
+		std::cout << "\"" << value << "\"" << std::endl;
 	}
 
 	// HELPERS OF BIG 3
@@ -46,7 +46,7 @@ private:
 public:
 	// FUNCTIONS
 	void Print() override {
-		std::cout << "Int value: " << value << std::endl;
+		std::cout << value << std::endl;
 	}
 
 	// HELPERS OF BIG 3
@@ -80,7 +80,7 @@ private:
 public:
 	// FUNCTIONS
 	void Print() override {
-		std::cout << "Double value: " << value << std::endl;
+		std::cout << value << std::endl;
 	}
 
 	// HELPERS BIG 3
@@ -114,7 +114,7 @@ private:
 public:
 	// FUNCTIONS
 	void Print() override {
-		std::cout << "Bool value: " << value << std::endl;
+		std::cout << value << std::endl;
 	}
 
 	// HELPERS OF BIG 3

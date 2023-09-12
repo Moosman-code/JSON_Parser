@@ -1,44 +1,51 @@
 {
-  "inventory": {
-    "location": "Warehouse A",
-    "items": [
+  "company": {
+    "name": "Acme Corporation",
+    "address": {
+      "street": "123 Main Street",
+      "city": "Anytown",
+      "state": "CA",
+      "postalCode": "12345"
+    },
+    "founder": "John Doe",
+    "foundedYear": 1990,
+    "employees": [
       {
-        "id": "1",
-        "name": "Laptop",
-        "brand": "Dell",
-        "price": 899.99,
-        "quantity": 50,
-        "specs": {
-          "processor": "Intel Core i7",
-          "memory": "16GB RAM",
-          "storage": "512GB SSD"
-        }
+        "id": 1,
+        "name": "Alice Johnson",
+        "position": "Software Engineer",
+        "projects": [
+          {
+            "name": "Project A",
+            "startDate": "2022-01-15",
+            "endDate": "2022-06-30"
+          },
+          {
+            "name": "Project B",
+            "startDate": "2022-07-10",
+            "endDate": "2022-12-31"
+          }
+        ]
       },
       {
-        "id": "2",
-        "name": "Smartphone",
-        "brand": "Apple",
-        "price": 999.99,
-        "quantity": 100,
-        "specs": {
-          "screen_size": 6.1,
-          "camera": "12MP",
-          "storage": "128GB"
-        }
+        "id": 2,
+        "name": "Bob Smith",
+        "position": "Data Analyst",
+        "projects": [],
+        "backup":  {}
+      },
+      {
+        "id": 3,
+        "name": "Eve Brown",
+        "position": "Product Manager",
+        "projects": [
+          {
+            "name": "Project C",
+            "startDate": "2022-03-01",
+            "endDate": "2022-09-30"
+          }
+        ]
       }
     ]
-  },
-  "employees": [
-    {
-      "id": "E001",
-      "name": "John Doe",
-      "position": "Warehouse Manager"
-    },
-    {
-      "id": "E002",
-      "name": "Jane Smith",
-      "position": "Sales Representative"
-    }
-  ],
-  "last_updated": "2023-09-03T10:30:00Z"
+  }
 }

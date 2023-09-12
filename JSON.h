@@ -7,13 +7,19 @@ class JSON : public Data {
 private:
 	std::unordered_map<std::string, Data*> dictionary;
 public:
-	// FUNCTIONS
+	// FUNCTIONS	
 	void Print() { 
+		int localSpacing = globalSpacing;
+		globalSpacing += 2;
+
+		std::cout << "{" << std::endl;
 		for (const auto& pair : this->dictionary) {
-			std::cout << pair.first << ":\n";
+			std::cout << std::setw(localSpacing + 2) << "\"" << pair.first << "\": ";
 			pair.second->Print();
-			std::cout << std::endl;
 		}
+
+		std::cout << std::setw(localSpacing) << "}" << std::endl;
+		globalSpacing -= 2;
 	}
 	void Add(std::string key, Data* value) {
 		this->dictionary.insert(std::pair<std::string, Data*>(key, value->Clone()));
