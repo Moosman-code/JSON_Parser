@@ -9,7 +9,9 @@ private:
 public:
 	// FUNCTIONS
 	void Print() override {
-		std::cout << "\"" << value << "\"" << std::endl;
+		if (this != nullptr) {
+			std::cout << "\"" << value << "\"" << std::endl;
+		}
 	}
 
 	// HELPERS OF BIG 3
@@ -140,4 +142,19 @@ public:
 
 		return *this;
 	}
+};
+
+class Null : public Data {
+private:
+	int* value = nullptr;
+public:
+	// FUNCTIONS
+	void Print() override {
+		std::cout << "null" << std::endl;
+	}
+	Data* Clone() override {
+		return new Null();
+	};
+
+	Null() = default;
 };

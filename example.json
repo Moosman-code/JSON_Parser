@@ -1,6 +1,6 @@
 {
   "company": {
-    "name": "Acme Corporation",
+    "name": null,
     "address": {
       "street": "123 Main Street",
       "city": "Anytown",
@@ -8,7 +8,7 @@
       "postalCode": "12345"
     },
     "founder": "John Doe",
-    "foundedYear": 1990,
+    "foundedYear": 1899,
     "employees": [
       {
         "id": 1,

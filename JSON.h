@@ -9,6 +9,10 @@ private:
 public:
 	// FUNCTIONS	
 	void Print() { 
+		if (this == nullptr) {
+			return;
+		}
+
 		int localSpacing = globalSpacing;
 		globalSpacing += 2;
 

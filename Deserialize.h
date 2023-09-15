@@ -23,6 +23,10 @@ Data* Deserialize(std::ifstream& file) {
 			else if (line == "[") {
 				returnValue = CreateVector(file, line);
 			}
+			else if (line == "null") {
+				std::cout << "JSON file contains only null object" << std::endl;
+				returnValue = new Null();
+			}
 		}
 		else if (line.size() == 0) {
 			continue;
@@ -31,6 +35,7 @@ Data* Deserialize(std::ifstream& file) {
 
 	return returnValue;
 }
+
 JSON* CreateJSON(std::ifstream& file, std::string& line) {
 	getline(file, line);
 	Trim(line);
@@ -97,8 +102,10 @@ Vector* CreateVector(std::ifstream& file, std::string& line) {
 
 Data* CreateValue(std::string& value) {
 	Data* returnValue = nullptr;
-
-	if (value == "[]") {
+	if (value == "null") {
+		returnValue = new Null();
+	}
+	else if (value == "[]") {
 		returnValue = new Vector();
 	}
 	else if (value == "{}") {

@@ -11,5 +11,7 @@ int main()
 	std::ifstream file;
 	file.open("example.json");
 	Data* result = Deserialize(file);
-	result->Print();
+	if (result != nullptr) {
+		result->Print();
+	}
 }
