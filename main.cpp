@@ -11,7 +11,15 @@ int main()
 	std::ifstream file;
 	file.open("example.json");
 	Data* result = Deserialize(file);
-	if (result != nullptr) {
-		result->Print();
+
+	// Search
+	Vector* vector = new Vector();
+	std::string key = "name";
+	result->Search(key, vector->Get());
+	if (vector->Get().size() != 0) {
+		vector->Print();
+	}
+	else {
+		std::cout << "No results found" << std::endl;
 	}
 }

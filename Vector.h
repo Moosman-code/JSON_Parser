@@ -25,6 +25,11 @@ public:
 		std::cout<< std::setw(localSpacing) << "]" << std::endl;
 		globalSpacing -= 2;
 	}
+	void Search(std::string& key, std::vector<Data*>& vector) override {
+		for (Data* value : this->vector) {
+			value->Search(key, vector);
+		}
+	}
 	void Add(Data* value) {
 		this->vector.push_back(value->Clone());
 	}

@@ -13,6 +13,9 @@ public:
 			std::cout << "\"" << value << "\"" << std::endl;
 		}
 	}
+	void Search(std::string& key, std::vector<Data*>& vector) override {
+		return;
+	}
 
 	// HELPERS OF BIG 3
 	Data* Clone() override {
@@ -50,6 +53,9 @@ public:
 	void Print() override {
 		std::cout << value << std::endl;
 	}
+	void Search(std::string& key, std::vector<Data*>& vector) override {
+		return;
+	}
 
 	// HELPERS OF BIG 3
 	Data* Clone() override {
@@ -83,6 +89,9 @@ public:
 	// FUNCTIONS
 	void Print() override {
 		std::cout << value << std::endl;
+	}
+	void Search(std::string& key, std::vector<Data*>& vector) override {
+		return;
 	}
 
 	// HELPERS BIG 3
@@ -118,6 +127,9 @@ public:
 	void Print() override {
 		std::cout << value << std::endl;
 	}
+	void Search(std::string& key, std::vector<Data*>& vector) override {
+		return;
+	}
 
 	// HELPERS OF BIG 3
 	Data* Clone() override {
@@ -149,12 +161,15 @@ private:
 	int* value = nullptr;
 public:
 	// FUNCTIONS
+	Data* Clone() override {
+		return new Null();
+	}
 	void Print() override {
 		std::cout << "null" << std::endl;
 	}
-	Data* Clone() override {
-		return new Null();
-	};
+	void Search(std::string& key, std::vector<Data*>& vector) override {
+		return;
+	}
 
 	Null() = default;
 };

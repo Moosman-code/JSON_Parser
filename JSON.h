@@ -8,7 +8,7 @@ private:
 	std::unordered_map<std::string, Data*> dictionary;
 public:
 	// FUNCTIONS	
-	void Print() { 
+	void Print() override { 
 		if (this == nullptr) {
 			return;
 		}
@@ -24,6 +24,15 @@ public:
 
 		std::cout << std::setw(localSpacing) << "}" << std::endl;
 		globalSpacing -= 2;
+	}
+	void Search(std::string& key, std::vector<Data*>& vector) override{
+		for (const auto& pair : this->dictionary) {
+			if (pair.first == key) {
+				vector.push_back(pair.second);
+			}
+
+			pair.second->Search(key, vector);
+		}
 	}
 	void Add(std::string key, Data* value) {
 		this->dictionary.insert(std::pair<std::string, Data*>(key, value->Clone()));
