@@ -16,6 +16,12 @@ public:
 	void Search(std::string& key, std::vector<Data*>& vector) override {
 		return;
 	}
+	bool Set(std::queue<std::string>& path, Data* replaceValue) override {
+		return false;
+	}
+	bool Find(std::queue<std::string>& path) override {
+		return false;
+	}
 
 	// HELPERS OF BIG 3
 	Data* Clone() override {
@@ -24,14 +30,14 @@ public:
 	std::string& Get() {
 		return this->value;
 	}
-	void Set(const std::string& _value) {
+	void SetString(const std::string& _value) {
 		this->value = _value;
 	}
 
 	// BIG 3
 	String() = default;
 	String(const std::string& _value) {
-		this->Set(_value);
+		this->SetString(_value);
 	}
 	String(const String& other) {
 		this->value = other.value;
@@ -56,6 +62,12 @@ public:
 	void Search(std::string& key, std::vector<Data*>& vector) override {
 		return;
 	}
+	bool Set(std::queue<std::string>& path, Data* replaceValue) override {
+		return false;
+	}
+	bool Find(std::queue<std::string>& path) override {
+		return false;
+	}
 
 	// HELPERS OF BIG 3
 	Data* Clone() override {
@@ -64,14 +76,14 @@ public:
 	int Get() {
 		return this->value;
 	}
-	void Set(const int _value) {
+	void SetInt(const int _value) {
 		this->value = _value;
 	}
 
 	// BIG 3
 	Int() = default;
 	Int(const int _value) {
-		this->Set(_value);
+		this->SetInt(_value);
 	}
 	Int& operator=(const Int& other) {
 		if (this != &other) {
@@ -93,6 +105,12 @@ public:
 	void Search(std::string& key, std::vector<Data*>& vector) override {
 		return;
 	}
+	bool Set(std::queue<std::string>& path, Data* replaceValue) override{
+		return false;
+	}
+	bool Find(std::queue<std::string>& path) override {
+		return false;
+	}
 
 	// HELPERS BIG 3
 	Data* Clone() override {
@@ -101,14 +119,14 @@ public:
 	double Get() {
 		return this->value;
 	}
-	void Set(const double _value) {
+	void SetDouble(const double _value) {
 		this->value = _value;
 	}
 
 	// BIG 3
 	Double() = default;
 	Double(const double _value) {
-		this->Set(_value);
+		this->SetDouble(_value);
 	}
 	Double& operator=(const Double& other) {
 		if (this != &other) {
@@ -130,6 +148,12 @@ public:
 	void Search(std::string& key, std::vector<Data*>& vector) override {
 		return;
 	}
+	bool Set(std::queue<std::string>& path, Data* replaceValue) override {
+		return false;
+	}
+	bool Find(std::queue<std::string>& path) override {
+		return false;
+	}
 
 	// HELPERS OF BIG 3
 	Data* Clone() override {
@@ -138,14 +162,14 @@ public:
 	bool Get() {
 		return this->value;
 	}
-	void Set(bool _value) {
+	void SetBool(bool _value) {
 		this->value = _value;
 	}
 
 	// BIG 3
 	Bool() = default;
 	Bool(bool _value) {
-		this->Set(_value);
+		this->SetBool(_value);
 	}
 	Bool& operator=(const Bool& other) {
 		if (this != &other) {
@@ -161,14 +185,21 @@ private:
 	int* value = nullptr;
 public:
 	// FUNCTIONS
-	Data* Clone() override {
-		return new Null();
-	}
 	void Print() override {
 		std::cout << "null" << std::endl;
 	}
 	void Search(std::string& key, std::vector<Data*>& vector) override {
 		return;
+	}
+	bool Set(std::queue<std::string>& path, Data* replaceValue) override {
+		return false;
+	}
+	bool Find(std::queue<std::string>& path) override {
+		return false;
+	}
+
+	Data* Clone() override {
+		return new Null();
 	}
 
 	Null() = default;

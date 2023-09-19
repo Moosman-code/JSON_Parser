@@ -27,6 +27,9 @@ Data* Deserialize(std::ifstream& file) {
 				std::cout << "JSON file contains only null object" << std::endl;
 				returnValue = new Null();
 			}
+			else {
+				returnValue = CreateValue(line);
+			}
 		}
 		else if (line.size() == 0) {
 			continue;
@@ -68,7 +71,6 @@ JSON* CreateJSON(std::ifstream& file, std::string& line) {
 	
 	return json;
 }
-
 
 Vector* CreateVector(std::ifstream& file, std::string& line) {
 	getline(file, line);

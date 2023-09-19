@@ -28,21 +28,50 @@ public:
 	void Search(std::string& key, std::vector<Data*>& vector) override{
 		for (const auto& pair : this->dictionary) {
 			if (pair.first == key) {
-				vector.push_back(pair.second);
+				vector.push_back(pair.second->Clone());
 			}
 
 			pair.second->Search(key, vector);
 		}
 	}
-	void Add(std::string key, Data* value) {
-		this->dictionary.insert(std::pair<std::string, Data*>(key, value->Clone()));
+	bool Set(std::queue<std::string>& path, Data* replaceValue) override {
+		for (auto& pair : this->dictionary) {
+			if (pair.first == path.front()) {
+				if (path.size() == 1) {
+					// Is this necessery
+					pair.second = replaceValue->Clone();
+					delete replaceValue;
+					return true;
+				}
+
+				path.pop();
+				return pair.second->Set(path, replaceValue);
+			}
+		}
+	}
+	bool Find(std::queue<std::string>& path) override {
+		bool flag = false;
+
+		for (auto& pair : this->dictionary) {
+			if (pair.first == path.front()) {
+				if (path.size() == 1) {
+					return true;
+				}
+
+				path.pop();
+				return pair.second->Find(path);
+			}
+		}
 	}
 
 	// HELPERS OF BIG 4
+	void Add(std::string key, Data* value) {
+		this->dictionary.insert(std::pair<std::string, Data*>(key, value->Clone()));
+	}
 	std::unordered_map<std::string, Data*>& Get() {
 		return this->dictionary;
 	}
-	void Set(const std::unordered_map<std::string, Data*>& otherDictionary) {
+	void SetJSON(const std::unordered_map<std::string, Data*>& otherDictionary) {
 		for (const auto& pair : otherDictionary) {
 			this->dictionary.insert(std::pair<std::string, Data*>(pair.first, pair.second->Clone()));
 		}
@@ -59,10 +88,10 @@ public:
 	// BIG 4
 	JSON() = default;
 	JSON(std::unordered_map<std::string, Data*>& otherDictionary) {
-		this->Set(otherDictionary);
+		this->SetJSON(otherDictionary);
 	}
 	JSON(const JSON& other) {
-		this->Set(other.dictionary);
+		this->SetJSON(other.dictionary);
 	}
 	~JSON() {
 		this->Clear();
@@ -70,7 +99,7 @@ public:
 	JSON& operator=(const JSON& other) {
 		if (this != &other) {
 			this->Clear();
-			this->Set(other.dictionary);
+			this->SetJSON(other.dictionary);
 		}
 
 		return *this;

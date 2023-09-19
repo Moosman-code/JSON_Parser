@@ -58,3 +58,20 @@ bool CheckIfDouble(std::string& value) {
 	return true;
 }
 
+void FillQueue(std::queue<std::string>& path, std::string input) {
+	int begin = 0;
+	int end = 0;
+	std::string location;
+
+	while (begin < input.size()) {
+		while ((end + begin) < input.size() && input[end + begin] != '/') {
+			end++;
+		}
+
+		location = input.substr(begin, end);
+		path.push(location);
+		begin += end + 1;
+		end = 0;
+	}
+}
+

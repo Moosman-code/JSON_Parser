@@ -30,15 +30,40 @@ public:
 			value->Search(key, vector);
 		}
 	}
+	bool Set(std::queue<std::string>& path, Data* replaceValue) override {
+		bool flag = false;
+
+		for (Data* element : this->vector) {
+			flag = element->Set(path, replaceValue);
+			if (flag == true) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+	bool Find(std::queue<std::string>& path) override {
+		bool flag = false;
+
+		for (Data* value : this->vector) {
+			flag = value->Find(path);
+			if (flag == true) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+	
+
+	// HELPERS OF BIG 4
 	void Add(Data* value) {
 		this->vector.push_back(value->Clone());
 	}
-
-	// HELPERS OF BIG 4
 	std::vector<Data*>& Get() {
 		return this->vector;
 	}
-	void Set(const std::vector<Data*>& _vector) {
+	void SetVector(const std::vector<Data*>& _vector) {
 		for (Data* value : _vector) {
 			this->vector.push_back(value->Clone());
 		}
@@ -59,7 +84,7 @@ public:
 	// BIG 4
 	Vector() = default;
 	Vector(const std::vector<Data*>& _vector) {
-		this->Set(_vector);
+		this->SetVector(_vector);
 	}
 	Vector(const Vector& _vector) {
 		for (Data* value : _vector.vector) {
