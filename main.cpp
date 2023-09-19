@@ -12,12 +12,26 @@ int main()
 	file.open("example.json");
 	Data* result = Deserialize(file);
 
+	//Create
+	std::string path = "company/employees/2/worktime/season";
+	Data* flag = new String("Summer");
+	std::queue<std::string> queue;
+	FillQueue(queue, path);
+	if (!result->Find(queue)) {
+		result->Create(queue, flag);
+	}
+	else {
+		std::cout << "Value already exists" << std::endl;
+	}
+
+	result->Print();
+
 	// Find
-	std::string path = "company/employees/projects/startDate1";
+	/*std::string path = "company/employees/projects/endDate";
 	std::queue<std::string> queue;
 	FillQueue(queue, path);
 	bool flag = result->Find(queue);
-	std::cout << flag;
+	std::cout << flag;*/
 
 	// Set (Works only with primitives, so far)
 	/*std::queue<std::string> queue;
@@ -27,10 +41,11 @@ int main()
 	std::string input;
 	std::getline(std::cin, input);
 	Data* replaceValue = CreateValue(input);
+	Data* str = new String("The Manhatan Project");
 
 	FillQueue(queue, path);
 
-	bool flag = result->Set(queue, replaceValue);
+	bool flag = result->Set(queue, str);
 	if (!flag) {
 		std::cout << "Invalid path" << std::endl;
 	}

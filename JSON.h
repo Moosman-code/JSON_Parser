@@ -49,9 +49,7 @@ public:
 			}
 		}
 	}
-	bool Find(std::queue<std::string>& path) override {
-		bool flag = false;
-
+	bool Find(std::queue<std::string> path) override {
 		for (auto& pair : this->dictionary) {
 			if (pair.first == path.front()) {
 				if (path.size() == 1) {
@@ -61,6 +59,28 @@ public:
 				path.pop();
 				return pair.second->Find(path);
 			}
+		}
+
+		return false;
+	}
+	bool Create(std::queue<std::string>& path, Data* createValue) override {
+		std::string currLevel = path.front();
+
+		for (const auto& pair : this->dictionary) {
+			if (pair.first == currLevel) {
+				path.pop();
+				return pair.second->Create(path, createValue);
+			}
+		}
+
+		if (path.size() == 1) {
+			this->Add(currLevel, createValue);
+			return true;
+		}
+		else {
+			this->Add(currLevel, new JSON());
+			path.pop();
+			return this->dictionary[currLevel]->Create(path, createValue);
 		}
 	}
 

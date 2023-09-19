@@ -3,7 +3,6 @@
 #include "JSON.h"
 #include "Vector.h"
 #include "Primitives.h"
-#include "Utilities.h"
 
 JSON* CreateJSON(std::ifstream& file, std::string& line);
 Vector* CreateVector(std::ifstream& file, std::string& line);

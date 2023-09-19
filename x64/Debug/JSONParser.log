@@ -1,5 +1,4 @@
 ﻿  main.cpp
 D:\University\C++\JSON_Parser\Utilities.h(15,29): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
 D:\University\C++\JSON_Parser\JSON.h(51): warning C4715: 'JSON::Set': not all control paths return a value
-D:\University\C++\JSON_Parser\JSON.h(65): warning C4715: 'JSON::Find': not all control paths return a value
   JSONParser.vcxproj -> D:\University\C++\JSON_Parser\x64\Debug\JSONParser.exe

@@ -31,28 +31,79 @@ public:
 		}
 	}
 	bool Set(std::queue<std::string>& path, Data* replaceValue) override {
-		bool flag = false;
+		// If the path doesn't include an index to naviagte the vector
+		if (!CheckIfInt(path.front())) {
+			bool flag = false;
 
-		for (Data* element : this->vector) {
-			flag = element->Set(path, replaceValue);
-			if (flag == true) {
-				return true;
+			for (Data* value : this->vector) {
+				flag = value->Set(path, replaceValue);
+				if (flag) {
+					return true;
+				}
 			}
+
+			return false;
 		}
 
-		return false;
+		// if the path does include an index
+		int index = stoi(path.front());
+		if (index < 0 || index >= this->vector.size()) {
+			std::cout << "Invalid path: Index out of bounds" << std::endl;
+			return false;
+		}
+
+		path.pop();
+		return this->vector[index]->Set(path, replaceValue);
 	}
-	bool Find(std::queue<std::string>& path) override {
-		bool flag = false;
+	bool Find(std::queue<std::string> path) override {
+		// If the path doesn't include an index to naviagte the vector
+		if (!CheckIfInt(path.front())) {
+			bool flag = false;
 
-		for (Data* value : this->vector) {
-			flag = value->Find(path);
-			if (flag == true) {
-				return true;
+			for (Data* value : this->vector) {
+				flag = value->Find(path);
+				if (flag) {
+					return true;
+				}
 			}
+
+			return false;
 		}
 
-		return false;
+		// if the path does include an index
+		int index = stoi(path.front());
+		if (index < 0 || index >= this->vector.size()) {
+			std::cout << "Invalid path: Index out of bounds" << std::endl;
+			return false;
+		}
+
+		path.pop();
+		return this->vector[index]->Find(path);
+	}
+	bool Create(std::queue<std::string>& path, Data* createValue) override {
+		// If the path doesn't include an index to naviagte the vector
+		if (!CheckIfInt(path.front())) {
+			bool flag = false;
+
+			for (Data* value : this->vector) {
+				flag = value->Create(path, createValue);
+				if (flag) {
+					return true;
+				}
+			}
+
+			return false;
+		}
+
+		// if the path does include an index
+		int index = stoi(path.front());
+		if (index < 0 || index >= this->vector.size()) {
+			std::cout << "Invalid path: Index out of bounds" << std::endl;
+			return false;
+		}
+
+		path.pop();
+		return this->vector[index]->Create(path, createValue);
 	}
 	
 

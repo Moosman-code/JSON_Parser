@@ -1,6 +1,5 @@
 #pragma once
 
-#include <string>
 #include "Data.h"
 
 class String : public Data {
@@ -19,7 +18,10 @@ public:
 	bool Set(std::queue<std::string>& path, Data* replaceValue) override {
 		return false;
 	}
-	bool Find(std::queue<std::string>& path) override {
+	bool Find(std::queue<std::string> path) override {
+		return false;
+	}
+	bool Create(std::queue<std::string>& path, Data* createValue) override {
 		return false;
 	}
 
@@ -65,7 +67,10 @@ public:
 	bool Set(std::queue<std::string>& path, Data* replaceValue) override {
 		return false;
 	}
-	bool Find(std::queue<std::string>& path) override {
+	bool Find(std::queue<std::string> path) override {
+		return false;
+	}
+	bool Create(std::queue<std::string>& path, Data* createValue) override {
 		return false;
 	}
 
@@ -108,7 +113,10 @@ public:
 	bool Set(std::queue<std::string>& path, Data* replaceValue) override{
 		return false;
 	}
-	bool Find(std::queue<std::string>& path) override {
+	bool Find(std::queue<std::string> path) override {
+		return false;
+	}
+	bool Create(std::queue<std::string>& path, Data* createValue) override {
 		return false;
 	}
 
@@ -151,7 +159,10 @@ public:
 	bool Set(std::queue<std::string>& path, Data* replaceValue) override {
 		return false;
 	}
-	bool Find(std::queue<std::string>& path) override {
+	bool Find(std::queue<std::string> path) override {
+		return false;
+	}
+	bool Create(std::queue<std::string>& path, Data* createValue) override {
 		return false;
 	}
 
@@ -194,7 +205,10 @@ public:
 	bool Set(std::queue<std::string>& path, Data* replaceValue) override {
 		return false;
 	}
-	bool Find(std::queue<std::string>& path) override {
+	bool Find(std::queue<std::string> path) override {
+		return false;
+	}
+	bool Create(std::queue<std::string>& path, Data* createValue) override {
 		return false;
 	}
 
