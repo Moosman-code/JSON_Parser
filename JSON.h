@@ -83,6 +83,21 @@ public:
 			return this->dictionary[currLevel]->Create(path, createValue);
 		}
 	}
+	bool Delete(std::queue<std::string>& path) override {
+		std::string currLevel = path.front();
+
+		for (auto& pair : this->dictionary) {
+			if (pair.first == currLevel) {
+				if (path.size() == 1) {
+					this->dictionary.erase(pair.first);
+					return true;
+				}
+
+				path.pop();
+				return pair.second->Delete(path);
+			}
+		}
+	}
 
 	// HELPERS OF BIG 4
 	void Add(std::string key, Data* value) {

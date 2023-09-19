@@ -77,6 +77,10 @@ public:
 			return false;
 		}
 
+		if (path.size() == 1) {
+			return true;
+		}
+
 		path.pop();
 		return this->vector[index]->Find(path);
 	}
@@ -104,6 +108,36 @@ public:
 
 		path.pop();
 		return this->vector[index]->Create(path, createValue);
+	}
+	bool Delete(std::queue<std::string>& path) override {
+		// If the path doesn't include an index to naviagte the vector
+		if (!CheckIfInt(path.front())) {
+			bool flag = false;
+
+			for (Data* value : this->vector) {
+				flag = value->Delete(path);
+				if (flag) {
+					return true;
+				}
+			}
+
+			return false;
+		}
+
+		// if the path does include an index
+		int index = stoi(path.front());
+		if (index < 0 || index >= this->vector.size()) {
+			std::cout << "Invalid path: Index out of bounds" << std::endl;	
+			return false;
+		}
+
+		if (path.size() == 1) {
+			this->vector.erase(this->vector.begin() + index);
+			return true;
+		}
+
+		path.pop();
+		return this->vector[index]->Delete(path);
 	}
 	
 

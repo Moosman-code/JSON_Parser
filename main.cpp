@@ -12,8 +12,17 @@ int main()
 	file.open("example.json");
 	Data* result = Deserialize(file);
 
+	//Delete
+	/*std::string path = "company/employees";
+	std::queue<std::string> queue;
+	FillQueue(queue, path);
+	if (result->Find(queue)) {
+		std::cout << result->Delete(queue);
+		result->Print();
+	}*/
+
 	//Create
-	std::string path = "company/employees/2/worktime/season";
+	/*std::string path = "company/employees/2/worktime/season";
 	Data* flag = new String("Summer");
 	std::queue<std::string> queue;
 	FillQueue(queue, path);
@@ -24,7 +33,7 @@ int main()
 		std::cout << "Value already exists" << std::endl;
 	}
 
-	result->Print();
+	result->Print();*/
 
 	// Find
 	/*std::string path = "company/employees/projects/endDate";

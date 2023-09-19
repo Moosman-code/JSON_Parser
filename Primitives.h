@@ -24,6 +24,9 @@ public:
 	bool Create(std::queue<std::string>& path, Data* createValue) override {
 		return false;
 	}
+	bool Delete(std::queue<std::string>& path) override {
+		return false;
+	}
 
 	// HELPERS OF BIG 3
 	Data* Clone() override {
@@ -73,6 +76,9 @@ public:
 	bool Create(std::queue<std::string>& path, Data* createValue) override {
 		return false;
 	}
+	bool Delete(std::queue<std::string>& path) override {
+		return false;
+	}
 
 	// HELPERS OF BIG 3
 	Data* Clone() override {
@@ -117,6 +123,9 @@ public:
 		return false;
 	}
 	bool Create(std::queue<std::string>& path, Data* createValue) override {
+		return false;
+	}
+	bool Delete(std::queue<std::string>& path) override {
 		return false;
 	}
 
@@ -165,6 +174,9 @@ public:
 	bool Create(std::queue<std::string>& path, Data* createValue) override {
 		return false;
 	}
+	bool Delete(std::queue<std::string>& path) override {
+		return false;
+	}
 
 	// HELPERS OF BIG 3
 	Data* Clone() override {
@@ -209,6 +221,9 @@ public:
 		return false;
 	}
 	bool Create(std::queue<std::string>& path, Data* createValue) override {
+		return false;
+	}
+	bool Delete(std::queue<std::string>& path) override {
 		return false;
 	}
 

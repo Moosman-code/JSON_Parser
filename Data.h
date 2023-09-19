@@ -14,6 +14,6 @@ public:
 	virtual bool Set(std::queue<std::string>& path, Data* replaceValue) = 0;
 	virtual bool Find(std::queue<std::string> path) = 0;
 	virtual bool Create(std::queue<std::string>& path, Data* replaceValue) = 0;
-
+	virtual bool Delete(std::queue<std::string>& path) = 0;
 };
 
